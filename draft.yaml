@@ -1,0 +1,34 @@
+models:
+    Product:
+        name: string
+        slug: string
+        price: integer
+        description: text nullable
+        relationships:
+            hasMany: Cart, Order
+
+    Cart:
+        product_id: integer foreign
+        user_id: integer foreign
+        quantity: integer
+        unit_price: integer
+        relationships:
+            belongsTo: Product, User
+
+    Order:
+        user_id: integer foreign
+        total: integer
+        order_status: enum
+        payment_status: enum
+        relationships:
+            belongsTo: User
+            hasMany: OrderItem
+
+    OrderItem:
+        order_id: integer foreign
+        product_id: integer foreign
+        quantity: integer
+        unit_price: integer
+        relationships:
+            belongsTo: Product, Order
+
