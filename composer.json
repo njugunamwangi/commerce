@@ -13,6 +13,7 @@
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.4",
         "livewire/volt": "^1.0",
+        "masmerise/livewire-toaster": "^2.6",
         "spatie/laravel-sluggable": "^3.7"
     },
     "require-dev": {
