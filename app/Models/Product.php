@@ -2,6 +2,10 @@
 
 namespace App\Models;
 
+use Awcodes\Curator\Components\Forms\CuratorPicker;
+use Filament\Forms\Components\Group;
+use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,6 +19,31 @@ class Product extends Model
     use HasSlug;
 
     protected $guarded = ['id'];
+
+    public static function getForm(): array
+    {
+        return [
+            Group::make()
+                ->schema([
+                    TextInput::make('name')
+                        ->required()
+                        ->maxLength(255),
+                    TextInput::make('price')
+                        ->required()
+                        ->numeric()
+                        ->prefix('$'),
+                    RichEditor::make('description')
+                        ->columnSpanFull(),
+                ])
+                ->columnSpan(8),
+            Group::make()
+                ->schema([
+                    CuratorPicker::make('media_id')
+                        ->label('Cover Image')
+                ])
+                ->columnSpan(4),
+        ];
+    }
 
     public function getSlugOptions(): SlugOptions
     {
