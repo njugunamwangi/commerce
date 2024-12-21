@@ -66,4 +66,9 @@ class Product extends Model
     {
         return $this->hasMany(Order::class);
     }
+
+    public function photo()
+    {
+        return empty($this->media_id) ? 'https://placehold.co/300x400?text='.$this->name : url('/storage/'.$this->media->path);
+    }
 }
