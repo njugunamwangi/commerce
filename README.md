@@ -64,3 +64,15 @@ php artisan serve
 email: info@ndachi.dev
 password: password
 ```
+
+## API endpoints
+
+- Authentication
+
+```bash
+http://localhost:8080/v1/auth/login
+```
+
+```bash
+http://localhost:8080/v1/auth/register
+```
