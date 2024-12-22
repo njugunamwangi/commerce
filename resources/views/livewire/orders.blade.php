@@ -18,7 +18,7 @@ new class extends Component {
 
 }; ?>
 
-<div>
+<div wire:poll.keep-alive>
     @if (auth()->user())
         @if ($orders && $orders->count() > 0)
             <div class="bg-gray-900">
@@ -46,8 +46,8 @@ new class extends Component {
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-800">
-                                <tr>
-                                    @foreach ($orders as $order)
+                                @foreach ($orders as $order)
+                                    <tr>
                                         <td class="py-4 pl-4 pr-3 text-sm font-medium text-white whitespace-nowrap sm:pl-0">
                                             {{ $order->created_at }}
                                         </td>
@@ -57,8 +57,8 @@ new class extends Component {
                                         <td class="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
                                             <a href="#" class="text-indigo-400 hover:text-indigo-300">View<span class="sr-only">, view</span></a>
                                         </td>
-                                    @endforeach
-                                </tr>
+                                    </tr>
+                                @endforeach
 
                                 <!-- More people... -->
                             </tbody>
