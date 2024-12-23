@@ -76,3 +76,25 @@ http://localhost:8080/v1/auth/login
 ```bash
 http://localhost:8080/v1/auth/register
 ```
+
+- Products
+
+```bash
+http://localhost:8080/v1/products
+```
+
+```bash
+http://localhost:8080/v1/products/{id}
+```
+
+- Cart
+
+```bash
+http://localhost:8080/v1/cart
+```
+
+- Orders
+
+```bash
+http://localhost:8080/v1/orders
+```
